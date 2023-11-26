@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PrediccionService {
 
-  private apiUrl = 'http://127.0.0.1:5000'; // Reemplaza con la URL de tu servidor
+  private apiUrl = 'https://dev-red-enfermedad.onrender.com';
   private apiUrl2 = 'https://api-skin-adminstrator.onrender.com';
 
   constructor(private http: HttpClient) { }
