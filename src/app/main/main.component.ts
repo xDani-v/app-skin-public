@@ -106,14 +106,18 @@ export class MainComponent {
       this.predictionService.predictImage(this.selectedImageFile).subscribe({
         next: (resp) => {
           let respuesta = resp as any;
-          this.information.id = respuesta['index'];
-          this.information.description = respuesta['class'];
-          this.information.confidence = respuesta['confidence'];
-
-          //Envio por el comunicador mi id
-          this.comunicatorsService.idInformation.next(this.information.id);
-
-
+          if (respuesta['confidence'] >= 0.80) {
+            this.information.id = respuesta['index'];
+            this.information.description = respuesta['class'];
+            this.information.confidence = respuesta['confidence'];
+            // Envío por el comunicador mi id
+            this.comunicatorsService.idInformation.next(this.information.id + 1);
+          } else {
+            // Manejar el caso en el que no se detecta ninguna enfermedad
+            this.information.description = 'No se ha detectado ninguna enfermedad';
+            this.information.confidence = 0;
+            this.comunicatorsService.idInformation.next(0); // Ajusta según tus necesidades
+          }
         },
         error: (error) => {
           console.log('Error of api rest ', error);

@@ -1,0 +1,1254 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-skin-public documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">app-skin-public documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MainComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/main/main.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-main</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./main.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./main.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#enfermedad" >enfermedad</a>
+                            </li>
+                            <li>
+                                <a href="#imageSrc" >imageSrc</a>
+                            </li>
+                            <li>
+                                <a href="#indice" >indice</a>
+                            </li>
+                            <li>
+                                <a href="#information" >information</a>
+                            </li>
+                            <li>
+                                <a href="#selectedImageFile" >selectedImageFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#videoElement" >videoElement</a>
+                            </li>
+                            <li>
+                                <a href="#webcamActive" >webcamActive</a>
+                            </li>
+                            <li>
+                                <a href="#webcamStream" >webcamStream</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#capturePhoto" >capturePhoto</a>
+                            </li>
+                            <li>
+                                <a href="#convertImageSrcToFile" >convertImageSrcToFile</a>
+                            </li>
+                            <li>
+                                <a href="#loadImage" >loadImage</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelected" >onFileSelected</a>
+                            </li>
+                            <li>
+                                <a href="#openWebcam" >openWebcam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#predictImage" >predictImage</a>
+                            </li>
+                            <li>
+                                <a href="#test" >test</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(predictionService: <a href="../injectables/PrediccionService.html" target="_self">PrediccionService</a>, comunicatorsService: <a href="../injectables/ComunicatorsService.html" target="_self">ComunicatorsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/main/main.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>predictionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PrediccionService.html" target="_self" >PrediccionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>comunicatorsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ComunicatorsService.html" target="_self" >ComunicatorsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="capturePhoto"></a>
+                    <span class="name">
+                        <span ><b>capturePhoto</b></span>
+                        <a href="#capturePhoto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>capturePhoto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/main/main.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertImageSrcToFile"></a>
+                    <span class="name">
+                        <span ><b>convertImageSrcToFile</b></span>
+                        <a href="#convertImageSrcToFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>convertImageSrcToFile(imageSrc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/main/main.component.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imageSrc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadImage"></a>
+                    <span class="name">
+                        <span ><b>loadImage</b></span>
+                        <a href="#loadImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadImage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/main/main.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelected"></a>
+                    <span class="name">
+                        <span ><b>onFileSelected</b></span>
+                        <a href="#onFileSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelected(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/main/main.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openWebcam"></a>
+                    <span class="name">
+                        <span ><b>openWebcam</b></span>
+                        <a href="#openWebcam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openWebcam()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/main/main.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="predictImage"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>predictImage</b></span>
+                        <a href="#predictImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>predictImage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/main/main.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="test"></a>
+                    <span class="name">
+                        <span ><b>test</b></span>
+                        <a href="#test"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>test()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/main/main.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enfermedad"></a>
+                    <span class="name">
+                        <span ><b>enfermedad</b></span>
+                        <a href="#enfermedad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;No se ha realizado analisis&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/main/main.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imageSrc"></a>
+                    <span class="name">
+                        <span ><b>imageSrc</b></span>
+                        <a href="#imageSrc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | ArrayBuffer | null | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/main/main.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indice"></a>
+                    <span class="name">
+                        <span ><b>indice</b></span>
+                        <a href="#indice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;No se ha realizado analisis&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/main/main.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="information"></a>
+                    <span class="name">
+                        <span ><b>information</b></span>
+                        <a href="#information"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: 0,
+    description: &#x27;&#x27;,
+    confidence: 0
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/main/main.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedImageFile"></a>
+                    <span class="name">
+                        <span ><b>selectedImageFile</b></span>
+                        <a href="#selectedImageFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/main/main.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="videoElement"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>videoElement</b></span>
+                        <a href="#videoElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;videoElement&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/main/main.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="webcamActive"></a>
+                    <span class="name">
+                        <span ><b>webcamActive</b></span>
+                        <a href="#webcamActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/main/main.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="webcamStream"></a>
+                    <span class="name">
+                        <span ><b>webcamStream</b></span>
+                        <a href="#webcamStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MediaStream | null | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/main/main.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild, ElementRef } from &#x27;@angular/core&#x27;;
+import { PrediccionService } from &#x27;../services/prediccion.service&#x27;;
+import { ComunicatorsService } from &#x27;../services/comunicators.service&#x27;;
+
+@Component({
+  selector: &#x27;app-main&#x27;,
+  templateUrl: &#x27;./main.component.html&#x27;,
+  styleUrls: [&#x27;./main.component.css&#x27;]
+})
+export class MainComponent {
+  imageSrc: string | ArrayBuffer | null | undefined &#x3D; null;
+  selectedImageFile: File | null &#x3D; null;
+  webcamActive: boolean &#x3D; false;
+  webcamStream: MediaStream | null | undefined &#x3D; null;
+  @ViewChild(&#x27;videoElement&#x27;) videoElement: any;
+
+  //Objeto con la informacion que viene de la api
+  information &#x3D; {
+    id: 0,
+    description: &#x27;&#x27;,
+    confidence: 0
+  }
+
+
+  constructor(private predictionService: PrediccionService,
+    private comunicatorsService: ComunicatorsService) { }
+
+  enfermedad: any &#x3D; &quot;No se ha realizado analisis&quot;;
+  indice: any &#x3D; &quot;No se ha realizado analisis&quot;;;
+
+  onFileSelected(event: any) {
+    const selectedFile &#x3D; event.target.files[0];
+    if (selectedFile) {
+      this.selectedImageFile &#x3D; selectedFile; // Almacena el archivo seleccionado
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; (e) &#x3D;&gt; {
+        this.imageSrc &#x3D; e.target?.result;
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  }
+
+  openWebcam() {
+    if (!this.webcamActive) { // Verificar si la webcam no está activa
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) &#x3D;&gt; {
+          this.webcamStream &#x3D; stream;
+          this.webcamActive &#x3D; true;
+          const videoElement &#x3D; this.videoElement.nativeElement;
+          videoElement.srcObject &#x3D; stream;
+          videoElement.play();
+        })
+        .catch((error) &#x3D;&gt; {
+          console.error(&#x27;Error al acceder a la webcam: &#x27;, error);
+        });
+    } else { // Si la webcam ya está activa, detener la transmisión y ocultar el elemento de video
+      this.webcamStream!.getVideoTracks()[0].stop();
+      this.videoElement.nativeElement.style.display &#x3D; &#x27;none&#x27;;
+      this.webcamActive &#x3D; false;
+    }
+  }
+
+  capturePhoto() {
+    if (this.webcamActive &amp;&amp; this.webcamStream) {
+      const videoElement &#x3D; document.querySelector(&#x27;video&#x27;);
+      if (videoElement) {
+        const canvas &#x3D; document.createElement(&#x27;canvas&#x27;);
+        canvas.width &#x3D; videoElement.videoWidth;
+        canvas.height &#x3D; videoElement.videoHeight;
+        const context &#x3D; canvas.getContext(&#x27;2d&#x27;);
+        context?.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+        this.imageSrc &#x3D; canvas.toDataURL(&#x27;image/png&#x27;);
+
+        this.convertImageSrcToFile(this.imageSrc);
+        // Detener la transmisión y eliminar el elemento de video
+        this.webcamStream.getVideoTracks()[0].stop();
+        this.videoElement.nativeElement.style.display &#x3D; &#x27;none&#x27;;
+        this.webcamActive &#x3D; false;
+      }
+    }
+  }
+
+  loadImage() {
+    const inputElement &#x3D; document.createElement(&#x27;input&#x27;);
+    inputElement.type &#x3D; &#x27;file&#x27;;
+    inputElement.accept &#x3D; &#x27;image/*&#x27;;
+    inputElement.onchange &#x3D; (event: Event) &#x3D;&gt; {
+      const target &#x3D; event.target as HTMLInputElement;
+      if (target.files &amp;&amp; target.files[0]) {
+        const selectedFile &#x3D; target.files[0];
+        const reader &#x3D; new FileReader();
+        reader.onload &#x3D; (e) &#x3D;&gt; {
+          this.imageSrc &#x3D; e.target?.result;
+        };
+        reader.readAsDataURL(selectedFile);
+      }
+    };
+    inputElement.click();
+  }
+
+  async predictImage() {
+
+    if (this.selectedImageFile) {
+
+      this.predictionService.predictImage(this.selectedImageFile).subscribe({
+        next: (resp) &#x3D;&gt; {
+          let respuesta &#x3D; resp as any;
+          if (respuesta[&#x27;confidence&#x27;] &gt;&#x3D; 0.80) {
+            this.information.id &#x3D; respuesta[&#x27;index&#x27;];
+            this.information.description &#x3D; respuesta[&#x27;class&#x27;];
+            this.information.confidence &#x3D; respuesta[&#x27;confidence&#x27;];
+            // Envío por el comunicador mi id
+            this.comunicatorsService.idInformation.next(this.information.id + 1);
+          } else {
+            // Manejar el caso en el que no se detecta ninguna enfermedad
+            this.information.description &#x3D; &#x27;No se ha detectado ninguna enfermedad&#x27;;
+            this.information.confidence &#x3D; 0;
+            this.comunicatorsService.idInformation.next(0); // Ajusta según tus necesidades
+          }
+        },
+        error: (error) &#x3D;&gt; {
+          console.log(&#x27;Error of api rest &#x27;, error);
+        }
+      })
+
+
+    } else {
+      console.error(&#x27;No se ha seleccionado una imagen.&#x27;);
+    }
+  }
+
+  convertImageSrcToFile(imageSrc: string) {
+    const base64Data &#x3D; imageSrc; // Asume que imageSrc es un string en formato base64
+    const byteCharacters &#x3D; atob(base64Data.split(&#x27;,&#x27;)[1]);
+    const byteNumbers &#x3D; new Array(byteCharacters.length);
+
+    for (let i &#x3D; 0; i &lt; byteCharacters.length; i++) {
+      byteNumbers[i] &#x3D; byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray &#x3D; new Uint8Array(byteNumbers);
+    const blob &#x3D; new Blob([byteArray], { type: &#x27;image/png&#x27; });
+
+    // Crea un objeto File a partir del Blob
+    const fileName &#x3D; &#x27;captured-image.png&#x27;; // Nombre de archivo deseado
+    const file &#x3D; new File([blob], fileName, { type: &#x27;image/png&#x27; });
+
+    this.selectedImageFile &#x3D; file;
+  }
+
+  test() {
+    this.predictionService.prueba().subscribe(
+      (response: any) &#x3D;&gt; {
+        console.log(response);
+      }
+    );
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+    &lt;h2 class&#x3D;&quot;text-4xl font-bold text-dark pl-96&quot;&gt;Deteccion de enfermedades faciales&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;div style&#x3D;&quot;padding-right: 75%;&quot; class&#x3D;&quot;pt-20 pl-12&quot;&gt;
+        &lt;app-ayuda&gt;&lt;/app-ayuda&gt;
+        &lt;label class&#x3D;&quot;block mb-2 text-sm font-medium text-gray-900&quot; for&#x3D;&quot;file_input&quot;&gt;Carga un
+            archivo&lt;/label&gt;
+        &lt;input
+            class&#x3D;&quot;block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50   focus:outline-none  &quot;
+            id&#x3D;&quot;file_input&quot; type&#x3D;&quot;file&quot; (change)&#x3D;&quot;onFileSelected($event)&quot; accept&#x3D;&quot;image/*&quot;&gt;
+
+        &lt;div class&#x3D;&quot;pt-5&quot;&gt;
+            &lt;button (click)&#x3D;&quot;openWebcam()&quot;
+                class&#x3D;&quot;focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 &quot;&gt;Abrir
+                Webcam&lt;/button&gt;
+            &lt;button (click)&#x3D;&quot;capturePhoto()&quot;
+                class&#x3D;&quot;focus:outline-none text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  &quot;
+                [disabled]&#x3D;&quot;!webcamActive&quot;&gt;Tomar Foto&lt;/button&gt;
+            &lt;button (click)&#x3D;&quot;predictImage()&quot; type&#x3D;&quot;button&quot;
+                class&#x3D;&quot;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 &quot;&gt;Analisis&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;video [style]&#x3D;&quot;webcamActive ? &#x27;display: block;&#x27; : &#x27;display: none;&#x27;&quot; autoplay #videoElement&gt;&lt;/video&gt;
+    &lt;/div&gt;
+
+    &lt;br&gt;
+    &lt;img [src]&#x3D;&quot;imageSrc&quot; alt&#x3D;&quot;Imagen mostrada aquí&quot; width&#x3D;&quot;500&quot; height&#x3D;&quot;500&quot;&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;contenedor-informacion&quot;&gt;
+    &lt;div&gt;
+        &lt;span&gt;Informacion del analisis&lt;/span&gt;
+        &lt;div&gt;
+            &lt;h2 class&#x3D;&quot;text-lg font-bold&quot;&gt;Resultado de la deteccion: &lt;/h2&gt; &lt;span&gt;{{information.description}}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h3 class&#x3D;&quot;text-lg font-bold&quot;&gt;Indice de acierto de la deteccion: &lt;/h3&gt;
+            &lt;span&gt;{{information.confidence}}&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;br&gt;
+    &lt;app-informacion&gt;&lt;/app-informacion&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./main.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.contenedor-informacion {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    padding-top: 5%;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>    <h2 class="text-4xl font-bold text-dark pl-96">Deteccion de enfermedades faciales</h2></div><div>    <div style="padding-right: 75%;" class="pt-20 pl-12">        <app-ayuda></app-ayuda>        <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Carga un            archivo</label>        <input            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50   focus:outline-none  "            id="file_input" type="file" (change)="onFileSelected($event)" accept="image/*">        <div class="pt-5">            <button (click)="openWebcam()"                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Abrir                Webcam</button>            <button (click)="capturePhoto()"                class="focus:outline-none text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  "                [disabled]="!webcamActive">Tomar Foto</button>            <button (click)="predictImage()" type="button"                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Analisis</button>        </div>        <video [style]="webcamActive ? \'display: block;\' : \'display: none;\'" autoplay #videoElement></video>    </div>    <br>    <img [src]="imageSrc" alt="Imagen mostrada aquí" width="500" height="500"></div><div class="contenedor-informacion">    <div>        <span>Informacion del analisis</span>        <div>            <h2 class="text-lg font-bold">Resultado de la deteccion: </h2> <span>{{information.description}}</span>        </div>        <div>            <h3 class="text-lg font-bold">Indice de acierto de la deteccion: </h3>            <span>{{information.confidence}}</span>        </div>    </div>    <br>    <app-informacion></app-informacion></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AyudaComponent', 'selector': 'app-ayuda'},{'name': 'InformacionComponent', 'selector': 'app-informacion'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PaneldermatologoComponent', 'selector': 'app-paneldermatologo'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MainComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MainComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

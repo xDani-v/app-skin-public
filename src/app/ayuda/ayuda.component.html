@@ -1,0 +1,50 @@
+<!-- modal.component.html -->
+<button
+    class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+    (click)="abrirModal()">Ayuda</button>
+
+<div *ngIf="mostrarModal" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-50 bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Informacion</h2>
+        <div>
+            <h2>Recomendaciones para Tomar Fotos</h2>
+
+            <ol>
+                <li>
+                    <strong>Iluminación Adecuada:</strong>
+                    <p>
+                        Asegúrate de que la cara esté bien iluminada. Utiliza luz natural suave y evita sombras fuertes
+                        que puedan afectar la detección.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Ángulo y Posición de la Cámara:</strong>
+                    <p>
+                        Asegurate de capturar correctamente la zona afecta, para obtener una mayor precisión.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Distancia Adecuada:</strong>
+                    <p>
+                        Mantén una distancia uniforme entre la cámara y el rostro para obtener un enfoque nítido. Evita
+                        que la cara esté demasiado cerca o demasiado lejos.
+                    </p>
+                </li>
+                <div class="alerta">
+
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+                        <span class="font-medium">¡Advertencia!</span> Este servicio de detección facial no reemplaza
+                        una consulta médica.
+                        Es importante buscar asesoramiento profesional para un diagnóstico preciso.
+                    </div>
+                </div>
+            </ol>
+        </div>
+        <button
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+            (click)="cerrarModal()">Cerrar</button>
+    </div>
+</div>

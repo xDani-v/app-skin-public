@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { MainComponent } from './main/main.component';
 import { PaneldermatologoComponent } from './paneldermatologo/paneldermatologo.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformacionComponent,
     MainComponent,
-    PaneldermatologoComponent
+    PaneldermatologoComponent,
+    AyudaComponent
   ],
   imports: [
     BrowserModule,

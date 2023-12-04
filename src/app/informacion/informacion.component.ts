@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ComunicatorsService } from '../services/comunicators.service';
 import { PrediccionService } from '../services/prediccion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-informacion',
@@ -21,7 +22,7 @@ export class InformacionComponent {
   verProductos: boolean = false;
 
 
-  constructor(private comunicatorsService: ComunicatorsService, private predictService: PrediccionService) { }
+  constructor(private comunicatorsService: ComunicatorsService, private predictService: PrediccionService, private router: Router) { }
 
 
 
@@ -107,7 +108,7 @@ export class InformacionComponent {
   }
 
   mostrarDermatologos() {
-    window.open('http://localhost:4200/dermatologos');
+    this.router.navigate(['/dermatologos']);
   }
 
 }
