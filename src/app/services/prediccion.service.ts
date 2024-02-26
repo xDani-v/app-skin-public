@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PrediccionService {
 
-  private apiUrl = 'http://127.0.0.1:5000';
+  private apiUrl = 'https://t053hknn-5000.use.devtunnels.ms/';
   private apiUrl2 = 'https://api-skin-adminstrator.onrender.com';
 
   constructor(private http: HttpClient) { }
@@ -21,7 +21,7 @@ export class PrediccionService {
 
 
   prueba() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrl2);
   }
 
 
